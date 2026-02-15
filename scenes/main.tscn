@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bpb3g4oljo1s6"]
+
+[ext_resource type="Script" uid="uid://bv6fb7q4mismx" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://blg7q6tio8bro" path="res://scripts/spawner.gd" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://boam7sow75ocf" path="res://scenes/enemy.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://tdn4hc62itj8" path="res://scenes/projectile.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://xxwl628n0ohg" path="res://scenes/tower.tscn" id="5_tbgi4"]
+
+[node name="Main" type="Node2D" unique_id=795584944]
+script = ExtResource("1_o5qli")
+enemy_scene = ExtResource("2_jyhfs")
+projectile_scene = ExtResource("3_tbgi4")
+
+[node name="Arena" type="Node2D" parent="." unique_id=2038250073]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1480141171]
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=1596125237]
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=1875318795]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1407427012]
+
+[node name="Spawner" type="Node" parent="." unique_id=1378098022]
+script = ExtResource("2_0wfyh")
+
+[node name="Tower" parent="." unique_id=665810211 instance=ExtResource("5_tbgi4")]
