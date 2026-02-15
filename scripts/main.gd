@@ -7,7 +7,7 @@ extends Node2D
 @export var enemies_per_wave_base: int = 10
 @export var enemies_per_wave_growth: int = 3
 @export var time_between_waves: float = 3.0
-@export var spawn_interval: float = 0.35
+@export var spawn_interval: float = 0.9
 
 var wave: int = 0
 var to_spawn: int = 0
@@ -26,7 +26,7 @@ func _ready() -> void:
 	assert(projectile_scene != null)
 
 	tower.set("projectile_scene", projectile_scene)
-	tower.set("projectiles_root_path", projectiles_root.get_path())
+	tower.set("projectiles_root", projectiles_root)
 
 	spawner.set("arena_radius", arena_radius)
 	spawner.set("enemies_root_path", enemies_root.get_path())

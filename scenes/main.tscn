@@ -5,11 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://boam7sow75ocf" path="res://scenes/enemy.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://tdn4hc62itj8" path="res://scenes/projectile.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://xxwl628n0ohg" path="res://scenes/tower.tscn" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://m2ok60oa54qy" path="res://assets/others/radius.png" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=795584944]
 script = ExtResource("1_o5qli")
 enemy_scene = ExtResource("2_jyhfs")
 projectile_scene = ExtResource("3_tbgi4")
+
+[node name="Tower" parent="." unique_id=665810211 instance=ExtResource("5_tbgi4")]
+position = Vector2(541, 314)
 
 [node name="Arena" type="Node2D" parent="." unique_id=2038250073]
 
@@ -18,10 +22,14 @@ projectile_scene = ExtResource("3_tbgi4")
 [node name="Projectiles" type="Node2D" parent="." unique_id=1596125237]
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=1875318795]
+autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1407427012]
+autostart = true
 
 [node name="Spawner" type="Node" parent="." unique_id=1378098022]
 script = ExtResource("2_0wfyh")
 
-[node name="Tower" parent="." unique_id=665810211 instance=ExtResource("5_tbgi4")]
+[node name="Radius" type="Sprite2D" parent="." unique_id=915206332]
+position = Vector2(541, 314)
+texture = ExtResource("6_tefeu")

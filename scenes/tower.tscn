@@ -1,12 +1,27 @@
 [gd_scene format=3 uid="uid://xxwl628n0ohg"]
 
 [ext_resource type="Script" uid="uid://drigb7p45cqhj" path="res://scripts/tower.gd" id="1_2x682"]
+[ext_resource type="Texture2D" uid="uid://8o57hq2xbuq4" path="res://assets/tower/tower.png" id="2_ay4al"]
+[ext_resource type="AudioStream" uid="uid://g1jrygm3djop" path="res://assets/audio/tower_fire.mp3" id="3_ktxwe"]
 
 [node name="Tower" type="Node2D" unique_id=665810211]
 script = ExtResource("1_2x682")
 
 [node name="Body" type="Sprite2D" parent="." unique_id=683763053]
 
-[node name="Muzzle" type="Marker2D" parent="." unique_id=1808186193]
-
 [node name="FireTimer" type="Timer" parent="." unique_id=2126343735]
+autostart = true
+
+[node name="Tower" type="Sprite2D" parent="." unique_id=1683748834]
+texture = ExtResource("2_ay4al")
+
+[node name="Turret" type="Node2D" parent="." unique_id=1493568519]
+position = Vector2(0, -24)
+
+[node name="TowerFire" type="AudioStreamPlayer" parent="Turret" unique_id=1612991350]
+stream = ExtResource("3_ktxwe")
+volume_db = -5.0
+
+[node name="Muzzle" type="Marker2D" parent="Turret" unique_id=1808186193]
+
+[node name="GunSprite" type="Sprite2D" parent="Turret" unique_id=739644700]

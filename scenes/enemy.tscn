@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://boam7sow75ocf"]
 
 [ext_resource type="Script" uid="uid://ca4k8g217o70r" path="res://scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://cyjcmypeu7cdd" path="res://assets/enemy/enemy.png" id="2_md0e3"]
+[ext_resource type="AudioStream" uid="uid://b7ybltyo3bp1p" path="res://assets/audio/enemy_impact.mp3" id="3_4ra3w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8tegq"]
-radius = 35.77709
+radius = 13.038404
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1930021488]
 script = ExtResource("1_7p1mj")
@@ -11,4 +13,9 @@ script = ExtResource("1_7p1mj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377263654]
 shape = SubResource("CircleShape2D_8tegq")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1998042645]
+[node name="Enemy" type="Sprite2D" parent="." unique_id=25268035]
+z_index = 1
+texture = ExtResource("2_md0e3")
+
+[node name="EnemyImpact" type="AudioStreamPlayer" parent="." unique_id=584455027]
+stream = ExtResource("3_4ra3w")
