@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e406cb3-1c7a-4ae0-a574-c3637f158fee" name="Changes" comment="">
+    <list default="true" id="1e406cb3-1c7a-4ae0-a574-c3637f158fee" name="Changes" comment="Update code">
       <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/enemy.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/enemy.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/main.tscn" afterDir="false" />
@@ -12,7 +12,6 @@
       <change beforePath="$PROJECT_DIR$/scenes/tower.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/tower.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/enemy.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/enemy.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/main.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/spawner.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/spawner.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/tower.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/tower.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "alnikyur"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/alnikyur/last-tower-keeper.git",
+    "accountId": "5ad6d71c-c117-44f6-95bd-d7544d051c46"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7
 }]]></component>
@@ -49,6 +60,19 @@
       <option name="presentableId" value="Default" />
       <updated>1771179461207</updated>
     </task>
+    <task id="LOCAL-00001" summary="Update code">
+      <option name="closed" value="true" />
+      <created>1771185835315</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1771185835315</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update code" />
   </component>
 </project>

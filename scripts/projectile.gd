@@ -1,12 +1,17 @@
 extends Area2D
 
 @export var lifetime: float = 2.0
+
 var velocity: Vector2 = Vector2.ZERO
 var damage: int = 1
+
+@onready var projectile: AnimatedSprite2D = $Projectile
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	body_entered.connect(_on_body_entered)
+
+	projectile.play("default")
 
 	if has_node("LifeTimer"):
 		$LifeTimer.timeout.connect(queue_free)
