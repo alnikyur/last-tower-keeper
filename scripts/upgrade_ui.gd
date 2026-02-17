@@ -22,7 +22,7 @@ func _update_texts() -> void:
 	var stats = tower.get_upgrade_stats()
 
 	_set_card_text(card_hp, "Health", stats.hp, "+20%")
-	_set_card_text(card_rate, "Rate", stats.firerate, "+25%")
+	_set_card_text(card_rate, "Fire Rate", stats.firerate, "+25%")
 	_set_card_text(card_dmg, "Damage", stats.damage, "+50%")
 
 func _set_card_text(btn: Button, name: String, value, bonus: String) -> void:

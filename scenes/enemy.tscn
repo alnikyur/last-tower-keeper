@@ -110,6 +110,9 @@ script = ExtResource("1_7p1mj")
 data = ExtResource("2_c4w8v")
 knockback_distance = 32.0
 knockback_time = 0.1
+turn_speed = 100.0
+wander_strength = 0.5
+wander_freq = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377263654]
 shape = SubResource("CircleShape2D_8tegq")

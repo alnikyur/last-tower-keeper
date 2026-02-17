@@ -13,6 +13,11 @@ signal died
 
 @export var knockback_distance: float = 28.0
 @export var knockback_time: float = 0.08
+@export var turn_speed: float = 10.0
+@export var wander_strength: float = 0.22
+@export var wander_freq: float = 1.6
+
+var _wander_phase: float = 0.0
 
 var knockback_dir: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
@@ -51,12 +56,21 @@ func _physics_process(dt: float) -> void:
 		queue_free()
 		return
 
-	# базовое движение к башне
-	velocity = dir.normalized() * speed
+	# ===== НОВОЕ ДВИЖЕНИЕ (steering + wobble) =====
+	var desired_dir := dir.normalized()
 
-	# ✅ knockback как добавочная скорость на короткое время
+	_wander_phase += dt * wander_freq
+	var side := Vector2(-desired_dir.y, desired_dir.x)
+	var wobble := sin(_wander_phase + float(get_instance_id()) * 0.01)
+	desired_dir = (desired_dir + side * wobble * wander_strength).normalized()
+
+	var desired_velocity := desired_dir * speed
+	velocity = velocity.lerp(desired_velocity, clampf(turn_speed * dt, 0.0, 1.0))
+	# ==============================================
+
+	# knockback
 	if knockback_timer > 0.0:
-		var kb_speed := knockback_distance / maxf(knockback_time, 0.001) # px/sec
+		var kb_speed := knockback_distance / maxf(knockback_time, 0.001)
 		velocity += knockback_dir * kb_speed
 		knockback_timer -= dt
 		if knockback_timer <= 0.0:
