@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e406cb3-1c7a-4ae0-a574-c3637f158fee" name="Changes" comment="Update code">
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+    <list default="true" id="1e406cb3-1c7a-4ae0-a574-c3637f158fee" name="Changes" comment="Update logic">
       <change beforePath="$PROJECT_DIR$/scenes/enemy.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/enemy.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/main.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/projectile.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/projectile.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/tower.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/tower.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/enemy.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/enemy.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/main.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/tower.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/tower.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/spawner.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/spawner.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,35 +18,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "alnikyur"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alnikyur&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/alnikyur/last-tower-keeper.git",
-    "accountId": "5ad6d71c-c117-44f6-95bd-d7544d051c46"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/alnikyur/last-tower-keeper.git&quot;,
+    &quot;accountId&quot;: &quot;5ad6d71c-c117-44f6-95bd-d7544d051c46&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="39iWdnnJWsffGDpAiXnWwnNFWqM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -68,11 +64,20 @@
       <option name="project" value="LOCAL" />
       <updated>1771185835315</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update logic">
+      <option name="closed" value="true" />
+      <created>1771334917200</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1771334917200</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update code" />
+    <MESSAGE value="Update logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update logic" />
   </component>
 </project>

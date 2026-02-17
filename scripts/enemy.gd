@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal died
 
+@export var data: SlimeData
 @export var speed: float = 30.0
 @export var max_hp: int = 2
 @export var touch_damage: int = 1
@@ -23,6 +24,12 @@ var _did_touch := false
 var is_dead := false
 
 func _ready() -> void:
+	if data != null:
+		max_hp = data.max_hp
+		touch_damage = data.touch_damage
+		speed = data.speed
+		slime.modulate = data.tint
+
 	hp = max_hp
 	slime.play("walk")
 

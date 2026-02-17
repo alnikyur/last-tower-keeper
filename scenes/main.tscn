@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://m2ok60oa54qy" path="res://assets/others/radius.png" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dsp3d5yqyxx4j" path="res://scripts/line_aim.gd" id="7_85g3d"]
 [ext_resource type="Texture2D" uid="uid://b1ntp3dy5wxuw" path="res://assets/tiles/water_and_island_tiles_v2.1.png" id="8_tipki"]
+[ext_resource type="Resource" uid="uid://dwalt7mwd28a8" path="res://data/slimes/green.tres" id="9_jbj1t"]
 [ext_resource type="Script" uid="uid://cdtqm52dxiuer" path="res://scripts/upgrade_ui.gd" id="10_choun"]
+[ext_resource type="Resource" uid="uid://dxn01bythpxsc" path="res://data/slimes/red.tres" id="10_muem4"]
+[ext_resource type="Resource" uid="uid://b11yxuw5w3cck" path="res://data/slimes/blue.tres" id="11_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://3au8xq85623q" path="res://assets/others/Card.png" id="11_eb6dy"]
 [ext_resource type="Script" uid="uid://c43kyw2ts1uva" path="res://scripts/card_tilt.gd" id="11_ya4ey"]
 [ext_resource type="FontFile" uid="uid://fn75hx5dc4pr" path="res://assets/fonts/Goudy Mediaeval DemiBold.ttf" id="13_trceg"]
@@ -315,6 +318,9 @@ autostart = true
 
 [node name="Spawner" type="Node" parent="." unique_id=1378098022]
 script = ExtResource("2_0wfyh")
+slime_green = ExtResource("9_jbj1t")
+slime_red = ExtResource("10_muem4")
+slime_blue = ExtResource("11_dp3eg")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=227995219]
 
