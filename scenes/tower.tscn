@@ -75,10 +75,6 @@ size = Vector2(64, 64)
 
 [node name="Tower" type="Node2D" unique_id=665810211]
 script = ExtResource("1_2x682")
-max_hp = null
-fire_rate = null
-bullet_speed = null
-damage = null
 aim_offset_deg = 90.0
 
 [node name="Body" type="Sprite2D" parent="." unique_id=683763053]

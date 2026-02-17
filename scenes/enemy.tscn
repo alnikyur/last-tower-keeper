@@ -94,6 +94,8 @@ animations = [{
 [node name="Enemy" type="CharacterBody2D" unique_id=1930021488]
 collision_layer = 2
 script = ExtResource("1_7p1mj")
+knockback_distance = 32.0
+knockback_time = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377263654]
 shape = SubResource("CircleShape2D_8tegq")

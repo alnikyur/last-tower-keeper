@@ -12,10 +12,14 @@ var is_dead := false
 @export var bullet_speed: float = 520.0
 @export var damage: int = 1
 @export var aim_offset_deg: float = 0.0
+@export var base_damage: float = 1.0
+@export var damage_growth: float = 1.25
 
 var projectile_scene: PackedScene
 var projectiles_root: Node2D
 var _next_shot_time: float = 0.0
+var upgrade_level: int = 0
+const MAX_LEVEL := 10
 
 @onready var turret: Node2D = $Turret
 @onready var muzzle: Marker2D = $Turret/Muzzle
@@ -42,6 +46,26 @@ func _process(_dt: float) -> void:
 			_fire()
 			_next_shot_time = now + cooldown
 
+func apply_upgrade(type: String) -> void:
+	if upgrade_level >= MAX_LEVEL:
+		return
+
+	match type:
+		"hp":
+			max_hp = int(max_hp * 1.2)
+			hp = max_hp
+			hp_changed.emit(hp, max_hp)
+
+		"firerate":
+			fire_rate *= 1.25
+
+		"damage":
+			upgrade_level += 1
+			_recalc_damage()
+			return
+
+	upgrade_level += 1
+
 
 func apply_damage(amount: int) -> void:
 	if is_dead:
@@ -53,6 +77,18 @@ func apply_damage(amount: int) -> void:
 	if hp <= 0:
 		is_dead = true
 		died.emit()
+
+func get_upgrade_stats() -> Dictionary:
+	return {
+		"hp": max_hp,
+		"firerate": fire_rate,
+		"damage": damage,
+		"level": upgrade_level
+	}
+
+func _recalc_damage() -> void:
+	var raw := base_damage * pow(damage_growth, upgrade_level)
+	damage = max(1, int(round(raw)))
 
 func _fire() -> void:
 	if is_dead:
