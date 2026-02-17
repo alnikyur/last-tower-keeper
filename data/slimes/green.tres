@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SlimeData" format=3 uid="uid://dwalt7mwd28a8"]
+
+[ext_resource type="Script" uid="uid://dh7jdu1q40xuo" path="res://data/SlimeData.gd" id="1_alylc"]
+
+[resource]
+script = ExtResource("1_alylc")
+tint = Color(0.31079334, 0.5226862, 0.08101494, 1)
+metadata/_custom_type_script = "uid://dh7jdu1q40xuo"

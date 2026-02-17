@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SlimeData" format=3 uid="uid://b11yxuw5w3cck"]
+
+[ext_resource type="Script" uid="uid://dh7jdu1q40xuo" path="res://data/SlimeData.gd" id="1_fyrj2"]
+
+[resource]
+script = ExtResource("1_fyrj2")
+max_hp = 3
+touch_damage = 2
+speed = 40.0
+tint = Color(0.3260887, 0.32351017, 1, 1)
+metadata/_custom_type_script = "uid://dh7jdu1q40xuo"

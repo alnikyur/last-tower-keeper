@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e406cb3-1c7a-4ae0-a574-c3637f158fee" name="Changes" comment="Update logic">
-      <change beforePath="$PROJECT_DIR$/scenes/enemy.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/enemy.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/main.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/enemy.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/enemy.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/spawner.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/spawner.gd" afterDir="false" />
-    </list>
+    <list default="true" id="1e406cb3-1c7a-4ae0-a574-c3637f158fee" name="Changes" comment="Update logic" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +67,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771334917200</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update logic">
+      <option name="closed" value="true" />
+      <created>1771340281396</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1771340281396</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
