@@ -1,5 +1,7 @@
 extends Node
 
+signal wave_changed(wave: int)
+
 @export var enemy_scene: PackedScene
 @export var arena_radius: float = 256.0
 @export var spawn_padding: float = 0.0
@@ -8,8 +10,17 @@ extends Node
 @export var slime_red: SlimeData
 @export var slime_blue: SlimeData
 
+var current_wave: int = 1
 var enemies_root_path: NodePath
 var target_path: NodePath
+
+func next_wave() -> void:
+	current_wave += 1
+	wave_changed.emit(current_wave)
+	print("NEW WAVE:", current_wave)
+
+func _wave_speed_multiplier() -> float:
+	return 1.0 + 0.25 * max(current_wave - 1, 0)
 
 func spawn_enemy() -> Node2D:
 	if enemy_scene == null:
@@ -31,7 +42,8 @@ func spawn_enemy() -> Node2D:
 
 	# ВАЖНО: у врага target_path — это NodePath до башни (как у тебя в enemy.gd)
 	e.target_path = target.get_path()
-
+	e.tower_path = target.get_path()
+	
 	# Выбор типа (можешь поменять шансы)
 	var roll := randf()
 	var data: SlimeData = slime_green
@@ -44,6 +56,12 @@ func spawn_enemy() -> Node2D:
 
 	# ВАЖНО: назначить ДО add_child, чтобы enemy._ready() увидел data
 	e.data = data
+
+	# 🔥 увеличение скорости по волне
+	var mult := _wave_speed_multiplier()
+	e.speed = data.speed * mult
+
+	print("wave=", current_wave, " base=", data.speed, " mult=", _wave_speed_multiplier(), " final=", e.speed)
 
 	enemies_root.add_child(e)
 	return e

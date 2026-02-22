@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="SlimeData" format=3 uid="uid://b11yxuw5w3cck"]
 
 [ext_resource type="Script" uid="uid://dh7jdu1q40xuo" path="res://data/SlimeData.gd" id="1_fyrj2"]
+[ext_resource type="SpriteFrames" uid="uid://do2i35brjd2hr" path="res://sprite_frames/shieldman.tres" id="1_mnr3w"]
 
 [resource]
 script = ExtResource("1_fyrj2")
 max_hp = 3
 touch_damage = 2
 speed = 40.0
-tint = Color(0.3260887, 0.32351017, 1, 1)
+frames = ExtResource("1_mnr3w")
 metadata/_custom_type_script = "uid://dh7jdu1q40xuo"

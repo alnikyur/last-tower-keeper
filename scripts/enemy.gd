@@ -17,6 +17,10 @@ signal died
 @export var wander_strength: float = 0.22
 @export var wander_freq: float = 1.6
 
+@export var pickup_scene: PackedScene
+@export var drop_chance: float = 0.25
+@export var tower_path: NodePath
+
 var _wander_phase: float = 0.0
 
 var knockback_dir: Vector2 = Vector2.ZERO
@@ -28,15 +32,29 @@ var target_path: NodePath
 var _did_touch := false
 var is_dead := false
 
+#func _ready() -> void:
+	#if data != null:
+		#max_hp = data.max_hp
+		#touch_damage = data.touch_damage
+		#speed = data.speed
+		#slime.modulate = data.tint
+#
+	#hp = max_hp
+	#slime.play("walk")
+
 func _ready() -> void:
 	if data != null:
 		max_hp = data.max_hp
 		touch_damage = data.touch_damage
-		speed = data.speed
+		speed = speed if speed > 0 else data.speed
 		slime.modulate = data.tint
 
+		# ✅ ВОТ ОНО: подмена визуала
+		if data.frames != null:
+			slime.sprite_frames = data.frames
+
 	hp = max_hp
-	slime.play("walk")
+	slime.play(data.walk_anim if data != null else "walk")
 
 func _physics_process(dt: float) -> void:
 	if is_dead:
@@ -48,6 +66,10 @@ func _physics_process(dt: float) -> void:
 
 	var dir := (target.global_position - global_position)
 	var dist := dir.length()
+
+	# повернуть спрайт лицом к башне
+	if absf(dir.x) > 0.1:
+		slime.flip_h = dir.x < 0
 
 	if dist <= touch_radius and not _did_touch:
 		_did_touch = true
@@ -79,6 +101,25 @@ func _physics_process(dt: float) -> void:
 
 	move_and_slide()
 
+func _try_spawn_pickup() -> void:
+	if pickup_scene == null:
+		return
+	if randf() > drop_chance:
+		return
+
+	var p = pickup_scene.instantiate()
+	p.global_position = global_position
+
+	# тип 50/50
+	if randf() < 0.5:
+		p.type = 0 # HP
+	else:
+		p.type = 1 # FIRE_RATE
+
+	# передаём башню
+	p.tower = get_node_or_null(tower_path)
+
+	get_tree().current_scene.add_child(p)
 
 func take_damage(amount: int, hit_dir: Vector2 = Vector2.ZERO) -> bool:
 	if is_dead:
@@ -98,8 +139,10 @@ func take_damage(amount: int, hit_dir: Vector2 = Vector2.ZERO) -> bool:
 		if is_instance_valid(collision_shape_2d):
 			collision_shape_2d.set_deferred("disabled", true)
 
+		_try_spawn_pickup()
+
 		_play_death_sound_global()
-		slime.play("die")
+		slime.play(data.die_anim if data != null else "die")
 		await slime.animation_finished
 		died.emit()
 		queue_free()

@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e406cb3-1c7a-4ae0-a574-c3637f158fee" name="Changes" comment="Update logic" />
+    <list default="true" id="1e406cb3-1c7a-4ae0-a574-c3637f158fee" name="Changes" comment="Cosmetic updates, bug fixes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/others/Card.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/others/Card.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/others/Card_Medieval.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/others/Card_Medieval.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/water_and_island_tiles_v2.1.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiles/water_and_island_tiles_v2.1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SlimeData.gd" beforeDir="false" afterPath="$PROJECT_DIR$/data/SlimeData.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/slimes/blue.tres" beforeDir="false" afterPath="$PROJECT_DIR$/data/slimes/blue.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/slimes/green.tres" beforeDir="false" afterPath="$PROJECT_DIR$/data/slimes/green.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/slimes/red.tres" beforeDir="false" afterPath="$PROJECT_DIR$/data/slimes/red.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/enemy.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/enemy.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/main.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/projectile.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/projectile.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/tower.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/tower.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/enemy.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/enemy.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/main.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/projectile.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/projectile.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/spawner.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/spawner.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/tower.gd" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/tower.gd" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,12 +94,30 @@
       <option name="project" value="LOCAL" />
       <updated>1771340281396</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add 3 types of enemies">
+      <option name="closed" value="true" />
+      <created>1771350110841</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771350110841</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Cosmetic updates, bug fixes">
+      <option name="closed" value="true" />
+      <created>1771367190402</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1771367190402</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update code" />
     <MESSAGE value="Update logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update logic" />
+    <MESSAGE value="Add 3 types of enemies" />
+    <MESSAGE value="Cosmetic updates, bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cosmetic updates, bug fixes" />
   </component>
 </project>

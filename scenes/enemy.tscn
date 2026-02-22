@@ -3,106 +3,10 @@
 [ext_resource type="Script" uid="uid://ca4k8g217o70r" path="res://scripts/enemy.gd" id="1_7p1mj"]
 [ext_resource type="Resource" uid="uid://dwalt7mwd28a8" path="res://data/slimes/green.tres" id="2_c4w8v"]
 [ext_resource type="AudioStream" uid="uid://b7ybltyo3bp1p" path="res://assets/audio/enemy_impact.mp3" id="3_4ra3w"]
-[ext_resource type="Texture2D" uid="uid://bwevichgi3jqx" path="res://assets/enemy/Slime_Grey_32x32.png" id="4_5uy6h"]
+[ext_resource type="PackedScene" uid="uid://din402g264k45" path="res://scenes/pickup.tscn" id="3_c4w8v"]
+[ext_resource type="SpriteFrames" uid="uid://7fbuuv7ax61m" path="res://sprite_frames/spearman.tres" id="4_5uy6h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8tegq"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(0, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(32, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nenq2"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(64, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_md484"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(96, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ipns3"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(128, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qclf"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(160, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w8i8w"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_otmr2"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wtq4b"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j0cyh"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(96, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g0wcc"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(128, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s1ycm"]
-atlas = ExtResource("4_5uy6h")
-region = Rect2(160, 64, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nenq2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c4w8v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xwavj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nenq2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_md484")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ipns3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8qclf")
-}],
-"loop": false,
-"name": &"die",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w8i8w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_otmr2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wtq4b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j0cyh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g0wcc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s1ycm")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 10.0
-}]
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1930021488]
 collision_layer = 2
@@ -113,6 +17,25 @@ knockback_time = 0.1
 turn_speed = 100.0
 wander_strength = 0.5
 wander_freq = 3.0
+pickup_scene = ExtResource("3_c4w8v")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1095382669]
+position = Vector2(0, 6)
+amount = 10
+lifetime = 0.25
+explosiveness = 0.75
+fixed_fps = 60
+emission_shape = 6
+emission_ring_inner_radius = 0.8
+emission_ring_radius = 10.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 28.0
+damping_min = 20.0
+damping_max = 20.0
+scale_amount_min = 2.0
+scale_amount_max = 3.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377263654]
 shape = SubResource("CircleShape2D_8tegq")
@@ -122,5 +45,6 @@ stream = ExtResource("3_4ra3w")
 
 [node name="Slime" type="AnimatedSprite2D" parent="." unique_id=406225105]
 position = Vector2(0, -11)
-sprite_frames = SubResource("SpriteFrames_nenq2")
-animation = &"die"
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("4_5uy6h")
+animation = &"walk"

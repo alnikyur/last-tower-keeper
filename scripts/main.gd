@@ -8,6 +8,8 @@ extends Node2D
 @export var time_between_waves: float = 3.0
 @export var spawn_interval: float = 0.9
 
+@export var game_music: AudioStream
+
 var wave: int = 0
 var to_spawn: int = 0
 var alive: int = 0
@@ -28,6 +30,7 @@ var fib_curr: int = 2
 @onready var hp_label: Label = $UI/HpLabel
 @onready var line_aim: Node2D = $LineAim
 @onready var upgrade_ui: CanvasLayer = $UpgradeUI
+@onready var pause_menu: CanvasLayer = $PauseMenu
 
 var _waiting_next_wave := false
 
@@ -36,6 +39,8 @@ func _ready() -> void:
 
 	assert(enemy_scene != null)
 	assert(projectile_scene != null)
+
+	_AudioManager.play_music(game_music)
 
 	# Страховка от настроек сцены
 	wave_timer.one_shot = true
@@ -76,9 +81,22 @@ func _process(_dt: float) -> void:
 		_waiting_next_wave = true
 		upgrade_ui.show_cards()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		if get_tree().paused:
+			pause_menu.close()
+		else:
+			pause_menu.open()
+
 func _start_wave() -> void:
 	_waiting_next_wave = false
 	wave += 1
+
+	tower.call("_on_fire_rate_buff_timeout")
+
+	# ✅ Синхронизация волны со спавнером (чтобы росла скорость)
+	if spawner != null:
+		spawner.set("current_wave", wave)
 
 	var mult := _next_fib_mult()
 	var total := base_enemies_wave1 * mult

@@ -13,7 +13,7 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 	projectile.play("default")
-
+	add_to_group("projectile")
 	screen_notifier.screen_exited.connect(queue_free)
 
 	if has_node("LifeTimer"):

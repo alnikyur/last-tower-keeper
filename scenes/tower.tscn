@@ -78,8 +78,8 @@ size = Vector2(64, 64)
 [node name="Tower" type="Node2D" unique_id=665810211]
 script = ExtResource("1_2x682")
 aim_offset_deg = 90.0
-shotgun_pellets = 10
-shotgun_spread_deg = 20.0
+shotgun_pellets = 36
+shotgun_spread_deg = 365.0
 shotgun_cooldown = 10.0
 shotgun_damage_mul = 5.0
 
@@ -112,8 +112,12 @@ shape = SubResource("RectangleShape2D_ktxwe")
 custom_minimum_size = Vector2(64, 64)
 offset_left = -32.0
 offset_top = -48.0
-offset_right = 32.0
-offset_bottom = 16.0
+offset_right = 96.0
+offset_bottom = 80.0
 fill_mode = 4
 texture_under = ExtResource("5_85u2j")
 texture_progress = ExtResource("6_xl0gn")
+
+[node name="FireRateBuffTimer" type="Timer" parent="." unique_id=662137925]
+process_mode = 3
+one_shot = true

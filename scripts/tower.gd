@@ -35,15 +35,23 @@ const MAX_LEVEL := 10
 @onready var tower_fire: AudioStreamPlayer = $Turret/TowerFire
 @onready var gun_sprite: AnimatedSprite2D = $Turret/GunSprite
 @onready var shotgun_cd: TextureProgressBar = $ShotgunCooldown
+@onready var fire_rate_buff_timer: Timer = $FireRateBuffTimer
+
+var _fire_rate_buff_active := false
+var _fire_rate_buff_mult: float = 1.0
+var _base_fire_rate: float  # базовый fire_rate без активных баффов
 
 func _ready() -> void:
 	hp = max_hp
 	hp_changed.emit(hp, max_hp)
 
+	_base_fire_rate = fire_rate
+
 	shotgun_cd.min_value = 0
 	shotgun_cd.max_value = 100
 	shotgun_cd.value = 100
 
+	fire_rate_buff_timer.timeout.connect(_on_fire_rate_buff_timeout)
 
 func _process(_dt: float) -> void:
 	if is_dead:
@@ -56,7 +64,7 @@ func _process(_dt: float) -> void:
 
 	# ЛКМ — обычный выстрел (как у тебя)
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		var cooldown := 1.0 / maxf(fire_rate, 0.1)
+		var cooldown := 1.0 / maxf(_effective_fire_rate(), 0.1)  # <-- было fire_rate
 		if now >= _next_shot_time:
 			_fire()
 			_next_shot_time = now + cooldown
@@ -69,6 +77,21 @@ func _process(_dt: float) -> void:
 
 	_update_shotgun_cd()
 
+func apply_fire_rate_buff(mult: float, duration: float) -> void:
+	if mult <= 0.0:
+		return
+	_fire_rate_buff_active = true
+	_fire_rate_buff_mult = mult
+	# fire_rate НЕ меняем — используем через _effective_fire_rate()
+
+	fire_rate_buff_timer.stop()
+	fire_rate_buff_timer.wait_time = duration
+	fire_rate_buff_timer.start()
+
+func _on_fire_rate_buff_timeout() -> void:
+	_fire_rate_buff_mult = 1.0
+	_fire_rate_buff_active = false
+
 func _update_shotgun_cd() -> void:
 	var now: float = Time.get_ticks_msec() * 0.001
 	var remain: float = maxf(0.0, _next_shotgun_time - now)
@@ -78,7 +101,8 @@ func _update_shotgun_cd() -> void:
 
 	shotgun_cd.value = clampf(ratio * 100.0, 0.0, 100.0)
 
-
+func _effective_fire_rate() -> float:
+	return fire_rate * (_fire_rate_buff_mult if _fire_rate_buff_active else 1.0)
 
 func _fire_shotgun() -> void:
 	if is_dead:
@@ -137,6 +161,7 @@ func apply_upgrade(type: String) -> void:
 
 		"firerate":
 			fire_rate *= 1.25
+			_base_fire_rate = fire_rate
 
 		"damage":
 			upgrade_level += 1
